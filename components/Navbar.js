@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
+  const { data: session, status } = useSession();
+
   const liListItems = (
     <>
       <li>
@@ -12,12 +15,32 @@ const Navbar = () => {
       <li>
         <Link href="/contact"> Contact </Link>
       </li>
-      <li>
-        <Link href="/login"> Login </Link>
-      </li>
-      <li>
-        <Link href="/register"> Register </Link>
-      </li>
+      {session?.user?.email ? (
+        <li>
+          <Link
+            href="/api/auth/signout"
+            onClick={(e) => {
+              e.preventDefault();
+              signOut();
+            }}
+          >
+            Sign Out
+          </Link>
+        </li>
+      ) : (
+        <li>
+          <Link
+            href="/api/auth/signin"
+            onClick={(e) => {
+              e.preventDefault();
+              signIn("github");
+            }}
+          >
+            Login
+          </Link>
+        </li>
+        
+      )}
     </>
   );
   return (
@@ -48,12 +71,12 @@ const Navbar = () => {
               {liListItems}
             </ul>
           </div>
-          <Link href='/' className="btn btn-ghost normal-case text-xl">Company Logo</Link>
+          <Link href="/" className="btn btn-ghost normal-case text-xl">
+            Company Logo
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            {liListItems}
-            </ul>
+          <ul className="menu menu-horizontal px-1">{liListItems}</ul>
         </div>
       </div>
     </div>
