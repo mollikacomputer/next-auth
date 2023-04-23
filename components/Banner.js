@@ -5,7 +5,7 @@ const Banner = () => {
       <div className="carousel w-full">
         <div id="slide1" className="carousel-item relative w-full">
           <img
-            src="1.jpg"
+            src="./1.jpg"
             className="w-full"
           />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -19,7 +19,7 @@ const Banner = () => {
         </div>
         <div id="slide2" className="carousel-item relative w-full">
           <img
-            src="2.jpg"
+            src="./2.jpg"
             className="w-full"
           />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -33,7 +33,7 @@ const Banner = () => {
         </div>
         <div id="slide3" className="carousel-item relative w-full">
           <img
-            src="3.jpg"
+            src="./3.jpg"
             className="w-full"
           />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -47,7 +47,7 @@ const Banner = () => {
         </div>
         <div id="slide4" className="carousel-item relative w-full">
           <img
-            src="4.jpg"
+            src="./4.jpg"
             className="w-full"
           />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
